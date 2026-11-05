@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Persona: Lucas Silveira | Hub de Estudos</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+              900: '#312e81',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Smooth transitions */
+    * {
+      transition: background-color 0.2s ease, border-color 0.2s ease;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.1);
+      border-radius: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: rgba(99, 102, 241, 0.4);
+      border-radius: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: rgba(99, 102, 241, 0.7);
+    }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-100 font-sans min-h-screen antialiased selection:bg-brand-500 selection:text-white">
+
+  <!-- Header Navigation Bar -->
+  <header class="border-b border-slate-800 bg-slate-950/80 backdrop-blur-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-brand-600 to-indigo-400 flex items-center justify-center text-white shadow-lg shadow-brand-500/20">
+          <i data-lucide="user-check" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <span class="font-bold text-lg tracking-tight bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">Ficha de Persona UX</span>
+          <span class="hidden sm:inline-block ml-2 px-2 py-0.5 text-xs font-medium bg-brand-500/10 text-brand-400 border border-brand-500/20 rounded-full">Projeto Hub de Estudos</span>
+        </div>
+      </div>
+      
+      <div class="flex items-center space-x-3">
+        <!-- Quick Info Tooltip Badge -->
+        <span class="text-xs text-slate-400 hidden md:flex items-center gap-1.5 bg-slate-900 px-3 py-1.5 rounded-lg border border-slate-800">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          Perfil Validado por Pesquisa
+        </span>
+        <button id="themeToggle" class="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700/50 transition-all">
+          <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
+          <i data-lucide="moon" class="w-4 h-4 block dark:hidden"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Layout -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+
+    <!-- Top Card: Profile Header & Primary Bio -->
+    <section class="bg-slate-950/50 border border-slate-800/80 rounded-3xl p-6 lg:p-8 backdrop-blur-xl relative overflow-hidden shadow-2xl">
+      <!-- Glow effect background -->
+      <div class="absolute -top-24 -right-24 w-96 h-96 bg-brand-500/10 rounded-full blur-3xl pointer-events-none"></div>
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <!-- Avatar & Basic Bio -->
+        <div class="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col items-center sm:items-start lg:items-center text-center sm:text-left lg:text-center border-b lg:border-b-0 lg:border-r border-slate-800 pb-6 sm:pb-0 lg:pr-8">
+          <div class="relative group mb-4">
+            <div class="w-32 h-32 rounded-3xl overflow-hidden border-2 border-brand-500/30 p-1 bg-slate-900 shadow-xl group-hover:border-brand-500 transition-all duration-300">
+              <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=400" alt="Lucas Silveira" class="w-full h-full object-cover rounded-2xl">
+            </div>
+            <span class="absolute bottom-2 right-2 bg-emerald-500 text-slate-950 p-1.5 rounded-xl text-xs font-bold shadow-lg flex items-center gap-1" title="Disponibilidade Híbrida">
+              <i data-lucide="wifi" class="w-3.5 h-3.5"></i>
+            </span>
+          </div>
+          
+          <h1 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">Lucas Silveira</h1>
+          <p class="text-brand-400 font-medium text-sm mt-1">20 anos • Engenharia de Software</p>
+          <p class="text-slate-400 text-xs mt-1">Estagiário de Suporte Técnico (Meio Período)</p>
+          
+          <div class="flex flex-wrap justify-center sm:justify-start lg:justify-center gap-2 mt-4">
+            <span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-slate-800 text-slate-300 border border-slate-700/50 flex items-center gap-1">
+              <i data-lucide="map-pin" class="w-3 h-3 text-brand-400"></i> Cidade Universitária
+            </span>
+            <span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-slate-800 text-slate-300 border border-slate-700/50 flex items-center gap-1">
+              <i data-lucide="graduation-cap" class="w-3 h-3 text-brand-400"></i> 3º Período
+            </span>
+          </div>
+        </div>
+
+        <!-- Quote & Context -->
+        <div class="lg:col-span-8 space-y-6">
+          <!-- Featured Persona Quote -->
+          <div class="bg-gradient-to-r from-brand-900/40 via-slate-900 to-slate-900 border-l-4 border-brand-500 p-5 rounded-r-2xl relative">
+            <i data-lucide="quote" class="w-8 h-8 text-brand-500/20 absolute right-4 top-4"></i>
+            <p class="text-slate-200 italic font-medium text-base sm:text-lg leading-relaxed">
+              "Passo mais tempo a organizar o que preciso de estudar do que a estudar propriamente dito. Se o material não estiver num só lugar, acabo por me distrair e perder o foco."
+            </p>
+          </div>
+
+          <!-- Hardware & Eco-system Tags -->
+          <div>
+            <h4 class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-3 flex items-center gap-2">
+              <i data-lucide="laptop" class="w-4 h-4 text-brand-400"></i> Dispositivos & Ambientes Utilizados
+            </h4>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              <div class="bg-slate-900/90 border border-slate-800 p-2.5 rounded-xl flex items-center gap-2 text-xs font-medium text-slate-300">
+                <i data-lucide="laptop" class="w-4 h-4 text-indigo-400"></i> Notebook (Home/Estudo)
+              </div>
+              <div class="bg-slate-900/90 border border-slate-800 p-2.5 rounded-xl flex items-center gap-2 text-xs font-medium text-slate-300">
+                <i data-lucide="smartphone" class="w-4 h-4 text-indigo-400"></i> Smartphone Android
+              </div>
+              <div class="bg-slate-900/90 border border-slate-800 p-2.5 rounded-xl flex items-center gap-2 text-xs font-medium text-slate-300">
+                <i data-lucide="book-open" class="w-4 h-4 text-indigo-400"></i> Caderno Físico
+              </div>
+              <div class="bg-slate-900/90 border border-slate-800 p-2.5 rounded-xl flex items-center gap-2 text-xs font-medium text-slate-300">
+                <i data-lucide="cloud" class="w-4 h-4 text-indigo-400"></i> Drive & WhatsApp
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Metrics Banner -->
+          <div class="grid grid-cols-3 gap-3 pt-2">
+            <div class="bg-slate-900/60 border border-slate-800 p-3 rounded-2xl text-center">
+              <div class="text-xl sm:text-2xl font-black text-amber-400">15-20 min</div>
+              <div class="text-[11px] text-slate-400 font-medium">Perdidos por sessão</div>
+            </div>
+            <div class="bg-slate-900/60 border border-slate-800 p-3 rounded-2xl text-center">
+              <div class="text-xl sm:text-2xl font-black text-rose-400">4+ Canais</div>
+              <div class="text-[11px] text-slate-400 font-medium">Materiais dispersos</div>
+            </div>
+            <div class="bg-slate-900/60 border border-slate-800 p-3 rounded-2xl text-center">
+              <div class="text-xl sm:text-2xl font-black text-emerald-400">&lt; 1 min</div>
+              <div class="text-[11px] text-slate-400 font-medium">Meta de preparação</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Navigation Tabs for Content Sections -->
+    <div class="flex space-x-2 border-b border-slate-800 pb-2 overflow-x-auto custom-scrollbar">
+      <button onclick="switchTab('overview')" id="tab-overview" class="tab-btn active px-4 py-2.5 rounded-xl text-sm font-semibold flex items-center gap-2 whitespace-nowrap transition-all bg-brand-600 text-white shadow-lg shadow-brand-500/20">
+        <i data-lucide="layout-dashboard" class="w-4 h-4"></i> Visão Geral & Perfil
+      </button>
+      <button onclick="switchTab('journey')" id="tab-journey" class="tab-btn px-4 py-2.5 rounded-xl text-sm font-semibold flex items-center gap-2 whitespace-nowrap transition-all text-slate-400 hover:text-white hover:bg-slate-800">
+        <i data-lucide="map" class="w-4 h-4"></i> Jornada do Usuário
+      </button>
+      <button onclick="switchTab('solution')" id="tab-solution" class="tab-btn px-4 py-2.5 rounded-xl text-sm font-semibold flex items-center gap-2 whitespace-nowrap transition-all text-slate-400 hover:text-white hover:bg-slate-800">
+        <i data-lucide="sparkles" class="w-4 h-4"></i> Solução & Requisitos
+      </button>
+    </div>
+
+    <!-- TAB 1: OVERVIEW (Goals, Pain Points, Psychographics) -->
+    <div id="content-overview" class="tab-content space-y-8">
+      
+      <!-- Grid Layout for Objetivos vs Dores -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        
+        <!-- Core Goals Card -->
+        <div class="bg-slate-950/40 border border-slate-800 rounded-2xl p-6 hover:border-slate-700 transition-all">
+          <div class="flex items-center space-x-3 mb-6">
+            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center">
+              <i data-lucide="target" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h2 class="text-lg font-bold text-white">Objetivos Principais</h2>
+              <p class="text-xs text-slate-400">O que o Lucas tenta alcançar na sua rotina</p>
+            </div>
+          </div>
+
+          <ul class="space-y-4">
+            <li class="flex items-start space-x-3 bg-slate-900/60 p-3.5 rounded-xl border border-slate-800">
+              <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0"></i>
+              <div>
+                <h3 class="text-sm font-semibold text-slate-200">Centralização Eficiente</h3>
+                <p class="text-xs text-slate-400 mt-0.5">Reunir num único painel todos os links, PDFs, imagens e ficheiros por disciplina acadêmica.</p>
+              </div>
+            </li>
+
+            <li class="flex items-start space-x-3 bg-slate-900/60 p-3.5 rounded-xl border border-slate-800">
+              <i data-lucide="clock" class="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0"></i>
+              <div>
+                <h3 class="text-sm font-semibold text-slate-200">Economia de Tempo Instantânea</h3>
+                <p class="text-xs text-slate-400 mt-0.5">Reduzir o tempo pré-estudo para menos de 1 minuto para iniciar a leitura sem distrações.</p>
+              </div>
+            </li>
+
+            <li class="flex items-start space-x-3 bg-slate-900/60 p-3.5 rounded-xl border border-slate-800">
+              <i data-lucide="layers" class="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0"></i>
+              <div>
+                <h3 class="text-sm font-semibold text-slate-200">Revisão Estruturada para Provas</h3>
+                <p class="text-xs text-slate-400 mt-0.5">Manter o conteúdo organizado por semanas e matérias para evitar o pânico de revisão na véspera.</p>
+              </div>
+            </li>
+
+            <li class="flex items-start space-x-3 bg-slate-900/60 p-3.5 rounded-xl border border-slate-800">
+              <i data-lucide="refresh-cw" class="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0"></i>
+              <div>
+                <h3 class="text-sm font-semibold text-slate-200">Continuidade Multiplataforma</h3>
+                <p class="text-xs text-slate-400 mt-0.5">Acessar os mesmos arquivos seamlessly tanto no notebook de casa quanto no celular durante a deslocação.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Pain Points & Friction Card -->
+        <div class="bg-slate-950/40 border border-slate-800 rounded-2xl p-6 hover:border-slate-700 transition-all">
+          <div class="flex items-center space-x-3 mb-6">
+            <div class="w-10 h-10 rounded-xl bg-rose-500/10 border border-rose-500/20 text-rose-400 flex items-center justify-center">
+              <i data-lucide="alert-triangle" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h2 class="text-lg font-bold text-white">Dores e Frustrações</h2>
+              <p class="text-xs text-slate-400">Pontos de atrito atuais do usuário</p>
+            </div>
+          </div>
+
+          <ul class="space-y-4">
+            <li class="flex items-start space-x-3 bg-slate-900/60 p-3.5 rounded-xl border border-slate-800">
+              <i data-lucide="search-x" class="w-5 h-5 text-rose-400 mt-0.5 flex-shrink-0"></i>
+              <div>
+                <h3 class="text-sm font-semibold text-slate-200">Fragmentação Extrema de Conteúdo</h3>
+                <p class="text-xs text-slate-400 mt-0.5">Perda de 15 a 20 minutos procurando arquivos espalhados entre WhatsApp, Portal e Drive.</p>
+              </div>
+            </li>
+
+            <li class="flex items-start space-x-3 bg-slate-900/60 p-3.5 rounded-xl border border-slate-800">
+              <i data-lucide="battery-warning" class="w-5 h-5 text-rose-400 mt-0.5 flex-shrink-0"></i>
+              <div>
+                <h3 class="text-sm font-semibold text-slate-200">Cansaço Mental Pré-Estudo</h3>
+                <p class="text-xs text-slate-400 mt-0.5">O esforço para reunir o material consome a energia de foco, incentivando a procrastinação.</p>
+              </div>
+            </li>
+
+            <li class="flex items-start space-x-3 bg-slate-900/60 p-3.5 rounded-xl border border-slate-800">
+              <i data-lucide="file-minus" class="w-5 h-5 text-rose-400 mt-0.5 flex-shrink-0"></i>
+              <div>
+                <h3 class="text-sm font-semibold text-slate-200">Lacunas e Perda de Materiais</h3>
+                <p class="text-xs text-slate-400 mt-0.5">Anotações soltas em papel e links esquecidos no feed do WhatsApp geram pontos cegos no aprendizado.</p>
+              </div>
+            </li>
+
+            <li class="flex items-start space-x-3 bg-slate-900/60 p-3.5 rounded-xl border border-slate-800">
+              <i data-lucide="brain-circuit" class="w-5 h-5 text-rose-400 mt-0.5 flex-shrink-0"></i>
+              <div>
+                <h3 class="text-sm font-semibold text-slate-200">Sobrecarga de Ansiedade</h3>
+                <p class="text-xs text-slate-400 mt-0.5">Sensação permanente de atraso ou desorganização perante o volume total de matérias.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Psychographic & Behavioral Detail Section -->
+      <div class="bg-slate-950/40 border border-slate-800 rounded-2xl p-6">
+        <div class="flex items-center space-x-3 mb-4">
+          <div class="w-10 h-10 rounded-xl bg-brand-500/10 border border-brand-500/20 text-brand-400 flex items-center justify-center">
+            <i data-lucide="user" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h2 class="text-lg font-bold text-white">Perfil Psicográfico & Estilo de Vida</h2>
+            <p class="text-xs text-slate-400">Comportamento, hábitos e mentalidade tecnológica</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs leading-relaxed text-slate-300 mt-4">
+          <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-800/80 space-y-2">
+            <div class="font-semibold text-white flex items-center gap-1.5 text-sm">
+              <i data-lucide="zap" class="w-4 h-4 text-amber-400"></i> Rotina Multitelas & Dinâmica
+            </div>
+            <p>Alterna constantemente entre presencial e remoto. Procura alta praticidade, mas esbarra no excesso de canais informativos sem um hub central de dados.</p>
+          </div>
+          
+          <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-800/80 space-y-2">
+            <div class="font-semibold text-white flex items-center gap-1.5 text-sm">
+              <i data-lucide="compass" class="w-4 h-4 text-brand-400"></i> Foco em Soluções Visuais
+            </div>
+            <p>Por ser estudante de tecnologia, valoriza aplicações rápidas com baixo atrito de cliques, design intuitivo e navegação visual limpa (dashboard style).</p>
+          </div>
+
+          <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-800/80 space-y-2">
+            <div class="font-semibold text-white flex items-center gap-1.5 text-sm">
+              <i data-lucide="bar-chart-3" class="w-4 h-4 text-emerald-400"></i> Intenção vs. Organização
+            </div>
+            <p>Possui alto interesse em se organizar (já tentou Drive, Notion, WhatsApp), mas a falta de um fluxo unificado faz acumular arquivos soltos.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- TAB 2: USER JOURNEY MAP -->
+    <div id="content-journey" class="tab-content hidden space-y-6">
+      
+      <div class="bg-slate-950/40 border border-slate-800 rounded-2xl p-6">
+        <div class="flex items-center justify-between mb-6">
+          <div>
+            <h2 class="text-lg font-bold text-white">Mapeamento da Jornada do Usuário</h2>
+            <p class="text-xs text-slate-400">Como a dor se manifesta durante os 3 estágios do aprendizado</p>
+          </div>
+          <span class="text-xs px-3 py-1 rounded-full bg-slate-800 text-slate-400 border border-slate-700">Clique nas etapas para detalhes</span>
+        </div>
+
+        <!-- Timeline Steps Navigation -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          
+          <!-- Step 1 -->
+          <div onclick="setJourneyStep(1)" id="journey-card-1" class="journey-card cursor-pointer bg-brand-600/10 border-2 border-brand-500 p-5 rounded-2xl transition-all">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-bold text-brand-400 uppercase tracking-widest">Estágio 1</span>
+              <span class="w-6 h-6 rounded-full bg-brand-500 text-white font-bold text-xs flex items-center justify-center">1</span>
+            </div>
+            <h3 class="font-bold text-white text-base">Antes da Aula / Estudo</h3>
+            <p class="text-xs text-slate-400 mt-1">Busca e preparação do material necessário</p>
+          </div>
+
+          <!-- Step 2 -->
+          <div onclick="setJourneyStep(2)" id="journey-card-2" class="journey-card cursor-pointer bg-slate-900/60 border border-slate-800 p-5 rounded-2xl transition-all hover:border-slate-700">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-bold text-slate-500 uppercase tracking-widest">Estágio 2</span>
+              <span class="w-6 h-6 rounded-full bg-slate-800 text-slate-400 font-bold text-xs flex items-center justify-center">2</span>
+            </div>
+            <h3 class="font-bold text-white text-base">Durante a Sessão</h3>
+            <p class="text-xs text-slate-400 mt-1">Consumo de conteúdo e tomada de notas</p>
+          </div>
+
+          <!-- Step 3 -->
+          <div onclick="setJourneyStep(3)" id="journey-card-3" class="journey-card cursor-pointer bg-slate-900/60 border border-slate-800 p-5 rounded-2xl transition-all hover:border-slate-700">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-bold text-slate-500 uppercase tracking-widest">Estágio 3</span>
+              <span class="w-6 h-6 rounded-full bg-slate-800 text-slate-400 font-bold text-xs flex items-center justify-center">3</span>
+            </div>
+            <h3 class="font-bold text-white text-base">Pré-Exames / Revisão</h3>
+            <p class="text-xs text-slate-400 mt-1">Consolidação do aprendizado para provas</p>
+          </div>
+
+        </div>
+
+        <!-- Detailed Journey Step Panel -->
+        <div id="journey-detail" class="mt-6 bg-slate-900/90 border border-slate-800 p-6 rounded-2xl space-y-4">
+          <!-- JS fills this dynamically -->
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- TAB 3: APP SOLUTION REQUIREMENTS -->
+    <div id="content-solution" class="tab-content hidden space-y-6">
+      
+      <div class="bg-slate-950/40 border border-slate-800 rounded-2xl p-6">
+        <div class="flex items-center space-x-3 mb-6">
+          <div class="w-10 h-10 rounded-xl bg-brand-500/10 border border-brand-500/20 text-brand-400 flex items-center justify-center">
+            <i data-lucide="cpu" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h2 class="text-lg font-bold text-white">Requisitos do Produto Ideais</h2>
+            <p class="text-xs text-slate-400">Funcionalidades essenciais para atender as necessidades de Lucas</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          
+          <div class="bg-slate-900/80 border border-slate-800 p-5 rounded-2xl hover:border-brand-500/50 transition-all group">
+            <div class="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+              <i data-lucide="layout-grid" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-bold text-white text-sm">Dashboard Central</h3>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">Organização visual baseada em cards ou pastas inteligentes por disciplina acadêmica.</p>
+          </div>
+
+          <div class="bg-slate-900/80 border border-slate-800 p-5 rounded-2xl hover:border-brand-500/50 transition-all group">
+            <div class="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+              <i data-lucide="bookmark-plus" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-bold text-white text-sm">Captura Rápida (2 Clicks)</h3>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">Extensão ou botão de atalho para anexar PDFs, links e fotos sem interromper a navegação.</p>
+          </div>
+
+          <div class="bg-slate-900/80 border border-slate-800 p-5 rounded-2xl hover:border-brand-500/50 transition-all group">
+            <div class="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+              <i data-lucide="search" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-bold text-white text-sm">Busca Global & Tags</h3>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">Sistema inteligente de etiquetas que localiza qualquer arquivo em segundos por palavra-chave.</p>
+          </div>
+
+          <div class="bg-slate-900/80 border border-slate-800 p-5 rounded-2xl hover:border-brand-500/50 transition-all group">
+            <div class="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+              <i data-lucide="smartphone" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-bold text-white text-sm">Sincronização Total</h3>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">Acesso idêntico e em tempo real via navegador Web no PC ou aplicativo leve no celular.</p>
+          </div>
+
+        </div>
+
+        <!-- Concept Preview Widget -->
+        <div class="mt-8 border border-slate-800 rounded-2xl p-6 bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950/40">
+          <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div>
+              <span class="text-xs font-semibold uppercase tracking-wider text-brand-400">Proposta de Solução</span>
+              <h3 class="text-base font-bold text-white mt-1">Conceito: Hub Centralizador de Materiais de Estudo</h3>
+              <p class="text-xs text-slate-400 mt-1 max-w-xl">Uma solução visual que resolve a fragmentação organizando links do WhatsApp, arquivos do Drive e PDFs da faculdade num único painel contextual.</p>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="px-4 py-2 rounded-xl bg-brand-600 text-white font-medium text-xs flex items-center gap-2 shadow-lg shadow-brand-500/20">
+                <i data-lucide="check" class="w-4 h-4"></i> Pronto para Prototipação
+              </span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Interactive JavaScript -->
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    <!-- Dark/Light Theme Toggle Logic -->
+    const themeToggleBtn = document.getElementById('themeToggle');
+    themeToggleBtn.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+    });
+
+    // Tab Switching Logic
+    function switchTab(tabId) {
+      // Hide all contents
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+      
+      // Reset button styles
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('bg-brand-600', 'text-white', 'shadow-lg', 'shadow-brand-500/20');
+        btn.classList.add('text-slate-400', 'hover:text-white', 'hover:bg-slate-800');
+      });
+
+      // Show selected content
+      document.getElementById(`content-${tabId}`).classList.remove('hidden');
+
+      // Style active button
+      const activeBtn = document.getElementById(`tab-${tabId}`);
+      activeBtn.classList.remove('text-slate-400', 'hover:text-white', 'hover:bg-slate-800');
+      activeBtn.classList.add('bg-brand-600', 'text-white', 'shadow-lg', 'shadow-brand-500/20');
+    }
+
+    // Journey Steps Data
+    const journeySteps = {
+      1: {
+        title: "Estágio 1: Antes da Aula / Início da Sessão de Estudo",
+        action: "Senta-se na secretária com a intenção de iniciar uma sessão de estudo de 1 hora.",
+        friction: "Percebe que o PDF da matéria está no portal da universidade, as anotações principais ficaram no caderno físico e o link de apoio está perdido no grupo de WhatsApp.",
+        emotion: "Frustração, desânimo inicial e perda de foco.",
+        timeSpent: "15 a 20 minutos apenas organizando e localizando arquivos."
+      },
+      2: {
+        title: "Estágio 2: Durante a Sessão de Estudo",
+        action: "Tenta manter a concentração nos tópicos principais e fazer exercícios.",
+        friction: "Interrupções constantes para procurar outros arquivos ou pedir PDFs no WhatsApp a colegas de turma, quebrando o estado de *flow*.",
+        emotion: "Irritação e sensação de esforço improdutivo.",
+        timeSpent: "Múltiplas pausas de 2 a 5 minutos."
+      },
+      3: {
+        title: "Estágio 3: Pré-Exames e Provas",
+        action: "Tenta fazer uma revisão geral da matéria acumulada ao longo do semestre.",
+        friction: "Descobre lacunas graves no conteúdo porque vários links importantes expiraram ou anotações em folhas soltas foram perdidas.",
+        emotion: "Ansiedade elevada, pânico e sensação contínua de desorganização.",
+        timeSpent: "Horas extras gastas reescrevendo conteúdos perdidos."
+      }
+    };
+
+    function setJourneyStep(stepNumber) {
+      // Update Step Card UI
+      document.querySelectorAll('.journey-card').forEach((card, index) => {
+        if (index + 1 === stepNumber) {
+          card.className = "journey-card cursor-pointer bg-brand-600/10 border-2 border-brand-500 p-5 rounded-2xl transition-all";
+          card.querySelector('span:first-child').className = "text-xs font-bold text-brand-400 uppercase tracking-widest";
+          card.querySelector('span:last-child').className = "w-6 h-6 rounded-full bg-brand-500 text-white font-bold text-xs flex items-center justify-center";
+        } else {
+          card.className = "journey-card cursor-pointer bg-slate-900/60 border border-slate-800 p-5 rounded-2xl transition-all hover:border-slate-700";
+          card.querySelector('span:first-child').className = "text-xs font-bold text-slate-500 uppercase tracking-widest";
+          card.querySelector('span:last-child').className = "w-6 h-6 rounded-full bg-slate-800 text-slate-400 font-bold text-xs flex items-center justify-center";
+        }
+      });
+
+      // Render Journey Step Details
+      const data = journeySteps[stepNumber];
+      const detailContainer = document.getElementById('journey-detail');
+      
+      detailContainer.innerHTML = `
+        <h4 class="text-base font-bold text-white flex items-center gap-2">
+          <i data-lucide="compass" class="w-5 h-5 text-brand-400"></i> ${data.title}
+        </h4>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs mt-3">
+          <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800">
+            <span class="text-slate-400 font-medium block mb-1">Ação do Usuário:</span>
+            <p class="text-slate-200">${data.action}</p>
+          </div>
+          <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800">
+            <span class="text-rose-400 font-medium block mb-1">Ponto de Atrito / Problema:</span>
+            <p class="text-slate-200">${data.friction}</p>
+          </div>
+          <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800">
+            <span class="text-amber-400 font-medium block mb-1">Impacto Emocional:</span>
+            <p class="text-slate-200">${data.emotion}</p>
+          </div>
+          <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800">
+            <span class="text-indigo-400 font-medium block mb-1">Tempo de Desperdício Estimado:</span>
+            <p class="text-slate-200 font-semibold">${data.timeSpent}</p>
+          </div>
+        </div>
+      `;
+      
+      lucide.createIcons();
+    }
+
+    // Initialize Default Journey Step
+    setJourneyStep(1);
+  </script>
+</body>
+</html>
